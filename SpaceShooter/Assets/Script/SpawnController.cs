@@ -13,7 +13,7 @@ public class SpawnController : MonoBehaviour
     public float spawnRate = 1f;
     
     [HideInInspector] 
-    public bool spawnOn = true;
+    public bool aSpawnOn = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +31,7 @@ public class SpawnController : MonoBehaviour
 
     IEnumerator SpawnAsteroids()
     {
-        while (spawnOn)
+        while (aSpawnOn)
         {
             yield return new WaitForSeconds(spawnRate);
             asteroidModel = Random.Range(0, 3);

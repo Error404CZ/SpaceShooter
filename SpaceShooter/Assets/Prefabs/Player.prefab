@@ -9700,6 +9700,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1837393518847865518}
+  - component: {fileID: 3722031541396536808}
   m_Layer: 0
   m_Name: Shot Spawn
   m_TagString: Untagged
@@ -9721,3 +9722,17 @@ Transform:
   m_Father: {fileID: 1837393518847865516}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3722031541396536808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837393518848355982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09504e16e8881d45bf4e86cdea19a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotbolt: {fileID: 1282951138962222, guid: cef2071c0889c43a49b25b26abb07dd1, type: 3}
+  isShootable: 0
