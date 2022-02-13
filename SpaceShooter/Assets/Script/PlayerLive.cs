@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerLive : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject gameOverScreen;
-    [SerializeField] 
-    private GameObject player;
-    [SerializeField] 
-    private GameObject asteroidController;
+    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject playerAll;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject explosion;
+    [SerializeField] private GameObject asteroidController;
+    [SerializeField] private float time = 2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +26,18 @@ public class PlayerLive : MonoBehaviour
         
         if (other.tag == "Asteroid")
         {
-            gameOverScreen.SetActive(true);
-            asteroidController.SetActive(false);
-            player.SetActive(false);
+            StartCoroutine(death());
         }
         
+    }
+
+    IEnumerator death()
+    {
+        asteroidController.SetActive(false);
+        player.SetActive(false);
+        explosion.SetActive(true);
+        yield return new WaitForSeconds(time);
+        gameOverScreen.SetActive(true);
+        playerAll.SetActive(false);
     }
 }

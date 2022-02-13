@@ -5,24 +5,25 @@ using UnityEngine;
 
 public class AsteroidsLive : MonoBehaviour
 {
-    private AudioSource audioSource;
-    /*[SerializeField] private AudioClip audioClip;
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = audioClip;
-    }
-    */
-
+    [SerializeField] private float time = 2f;
+    [SerializeField] private GameObject asteridMesh;
+    [SerializeField] private GameObject explosion;
     private void OnTriggerEnter(Collider other)
     {
         
         if (other.tag == "Bolt")
         {
-            //audioSource.Play();
-            Destroy(gameObject);
+            StartCoroutine(asteroidDestroy());
         }
         
+    }
+
+    IEnumerator asteroidDestroy()
+    {
+        asteridMesh.SetActive(false);
+        explosion.SetActive(true);
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 
 }
