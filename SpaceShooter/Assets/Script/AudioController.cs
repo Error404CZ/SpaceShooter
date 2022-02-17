@@ -17,7 +17,6 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioClip audioClip8;
     [SerializeField] private AudioClip audioClip9;
     [SerializeField] private AudioClip audioClip10;
-    [SerializeField] private AudioClip audioClip11;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,11 +79,6 @@ public class AudioController : MonoBehaviour
                 }case 10 :
                 {
                     audioSource.clip=audioClip10;
-                    audioSource.Play();
-                    break;
-                }case 11 :
-                {
-                    audioSource.clip=audioClip11;
                     audioSource.Play();
                     break;
                 }

@@ -192,6 +192,7 @@ MonoBehaviour:
   time: 0.5
   asteridMesh: {fileID: 1988898753044740}
   explosion: {fileID: 6479035913819308903}
+  ScoreManager: {fileID: 5713381418480622743, guid: 3c2a803562e604544849950df2e4ff49, type: 3}
 --- !u!1 &1988898753044740
 GameObject:
   m_ObjectHideFlags: 0
