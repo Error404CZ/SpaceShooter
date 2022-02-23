@@ -9,20 +9,23 @@ public class AsteroidsLive : MonoBehaviour
     [SerializeField] private float time = 2f;
     [SerializeField] private GameObject asteridMesh;
     [SerializeField] private GameObject explosion;
-    private Score Score;
+    //private Score Score;
     [SerializeField] private GameObject ScoreManager;
-
+    /*
     private void Start()
     {
         Score = ScoreManager.GetComponent<Score>();
     }
-
+    */
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Bolt")
         {
             StartCoroutine(asteroidDestroy());
-            Score.UpScore();
+            //Score.UpScore();
+        }else if (other.tag == "EnemyBolt")
+        {
+            StartCoroutine(asteroidDestroy());
         }
         
     }

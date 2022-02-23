@@ -8,6 +8,7 @@ TagManager:
   - Border
   - Asteroid
   - Bolt
+  - EnemyBolt
   layers:
   - Default
   - TransparentFX

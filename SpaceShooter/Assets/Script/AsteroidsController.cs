@@ -7,7 +7,7 @@ public class AsteroidsController : MonoBehaviour
 {
 
     private Rigidbody rb;
-    private int speed=100;
+    [SerializeField] private int speed=100;
 
     private Vector3 vectorRotation;
 
@@ -22,6 +22,7 @@ public class AsteroidsController : MonoBehaviour
         vectorRotation.x = Random.Range(-500, 500);
         vectorRotation.y = Random.Range(-500, 500);
         vectorRotation.z = Random.Range(-500, 500);
+        
         force.y = Random.Range(forceIntDown-1, forceIntUp);
         rb.AddTorque(vectorRotation * Time.deltaTime*speed);
         rb.AddForce(-force * Time.deltaTime*speed);

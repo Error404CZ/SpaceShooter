@@ -27,6 +27,12 @@ public class PlayerLive : MonoBehaviour
         if (other.tag == "Asteroid")
         {
             StartCoroutine(death());
+        }else if (other.tag == "Enemy")
+        {
+            StartCoroutine(death());
+        }else if (other.tag == "EnemyBolt")
+        {
+            StartCoroutine(death());
         }
         
     }

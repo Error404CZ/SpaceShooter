@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class EnemyShoot : MonoBehaviour
 {
     private Rigidbody rb;
     [SerializeField]
-    private int speed=100;
+    private int speed=-100;
     
     private Vector3 force;
     // Start is called before the first frame update
@@ -21,9 +21,6 @@ public class Shoot : MonoBehaviour
     {
         
         if (other.tag == "Border")
-        {
-            Destroy(gameObject);
-        }else if (other.tag == "Enemy")
         {
             Destroy(gameObject);
         }else if (other.tag == "Asteroid")

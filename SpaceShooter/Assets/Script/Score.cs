@@ -18,13 +18,14 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreTxt.text = $"Score: {score}";
+        
     }
 
     public void UpScore()
     {
-        //Debug.Log("Log");
+        Debug.Log($"{score}");
         score = score + 1;
+        scoreTxt.text = $"Score: {score}";
     }
     
 }
