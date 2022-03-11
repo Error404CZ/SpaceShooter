@@ -21,6 +21,13 @@ public class AsteroidsLive : MonoBehaviour
         {
             Score.DownScore();
             StartCoroutine(asteroidDestroy());
+        }else if (other.tag == "Border")
+        {
+            Score.DownScore();
+            Destroy(gameObject);
+        }else if (other.tag == "DeathZone")
+        {
+            Destroy(gameObject);
         }
         
     }
@@ -32,5 +39,4 @@ public class AsteroidsLive : MonoBehaviour
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
     }
-
 }

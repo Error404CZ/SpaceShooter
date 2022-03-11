@@ -31,15 +31,4 @@ public class AsteroidsController : MonoBehaviour
         rb.AddTorque(vectorRotation * Time.deltaTime*speed);
         rb.AddForce(-force * Time.deltaTime*speed);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        
-        if (other.tag == "Border")
-        {
-            Score.DownScore();
-            Destroy(gameObject);
-        }
-        
-    }
 }

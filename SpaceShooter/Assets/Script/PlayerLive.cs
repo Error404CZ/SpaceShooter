@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerLive : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject ScoreScreen;
     [SerializeField] private GameObject playerAll;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject explosion;
     [SerializeField] private GameObject asteroidController;
+    [SerializeField] private GameObject DeathZone;
     [SerializeField] private float time = 2f;
     // Start is called before the first frame update
     void Start()
@@ -43,7 +45,9 @@ public class PlayerLive : MonoBehaviour
         player.SetActive(false);
         explosion.SetActive(true);
         yield return new WaitForSeconds(time);
+        ScoreScreen.SetActive(false);
         gameOverScreen.SetActive(true);
         playerAll.SetActive(false);
+        DeathZone.SetActive(true);
     }
 }

@@ -12105,7 +12105,7 @@ GameObject:
   - component: {fileID: 733229418}
   m_Layer: 0
   m_Name: BorderL
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13475,7 +13475,7 @@ GameObject:
   - component: {fileID: 1576722751}
   m_Layer: 0
   m_Name: BorderR
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53216,6 +53216,7 @@ MonoBehaviour:
   time: 0.5
   asteridMesh: {fileID: 8306382391710169325}
   explosion: {fileID: 3523775488621467252}
+  Score: {fileID: 581387943}
 --- !u!135 &2657162277589253023
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -72829,6 +72830,7 @@ MonoBehaviour:
   time: 0.5
   asteridMesh: {fileID: 6275940375740027601}
   explosion: {fileID: 1077950993789726898}
+  Score: {fileID: 581387943}
 --- !u!4 &4767375277273535626
 Transform:
   m_ObjectHideFlags: 0
@@ -72865,6 +72867,7 @@ MonoBehaviour:
   forceIntDown: 150
   speed: 100
   time: 0.5
+  Score: {fileID: 581387943}
 --- !u!4 &6116833585587708583
 Transform:
   m_ObjectHideFlags: 0
@@ -72896,6 +72899,7 @@ MonoBehaviour:
   asteroid: {fileID: 8306053617456746959}
   forceIntUp: 250
   forceIntDown: 300
+  Score: {fileID: 581387943}
 --- !u!136 &6267316266243908423
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -96981,6 +96985,7 @@ MonoBehaviour:
   time: 0.5
   asteridMesh: {fileID: 893096980097427274}
   explosion: {fileID: 8675530738737591854}
+  Score: {fileID: 581387943}
 --- !u!4 &6486523346184538187
 Transform:
   m_ObjectHideFlags: 0
@@ -97292,6 +97297,7 @@ MonoBehaviour:
   asteroid: {fileID: 893380120444977848}
   forceIntUp: 250
   forceIntDown: 300
+  Score: {fileID: 581387943}
 --- !u!1 &6944602002819461221
 GameObject:
   m_ObjectHideFlags: 0
@@ -116752,3 +116758,4 @@ MonoBehaviour:
   asteroid: {fileID: 6276608133912693585}
   forceIntUp: 250
   forceIntDown: 300
+  Score: {fileID: 581387943}

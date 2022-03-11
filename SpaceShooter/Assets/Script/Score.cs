@@ -8,7 +8,8 @@ using  UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     private int score = 0;
-    [SerializeField] private TextMeshProUGUI scoreTxt;
+    [SerializeField] private TextMeshProUGUI scoreTxtGame;
+    [SerializeField] private TextMeshProUGUI scoreTxtGameOver;
     
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,8 @@ public class Score : MonoBehaviour
     {
         //Debug.Log($"{score}");
         score = score + 1;
-        scoreTxt.text = $"Score: {score}";
+        scoreTxtGame.text = $"Score: {score}";
+        scoreTxtGameOver.text = $"Final Score: {score}";
     }
 
     public void DownScore()
@@ -34,7 +36,8 @@ public class Score : MonoBehaviour
         if (score > 0)
         {
             score = score - 1;
-            scoreTxt.text = $"Score: {score}";
+            scoreTxtGame.text = $"Score: {score}";
+            scoreTxtGameOver.text = $"Final Score: {score}";
         }
     }
 }

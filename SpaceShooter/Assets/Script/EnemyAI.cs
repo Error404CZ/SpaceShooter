@@ -55,6 +55,9 @@ public class EnemyAI : MonoBehaviour
         {
             Score.UpScore();
             StartCoroutine(enemyDestroy());
+        }else if (other.tag == "DeathZone")
+        {
+            Destroy(gameObject);
         }
         
     }
