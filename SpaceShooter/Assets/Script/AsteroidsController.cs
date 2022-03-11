@@ -8,6 +8,7 @@ public class AsteroidsController : MonoBehaviour
 
     private Rigidbody rb;
     [SerializeField] private int speed=100;
+    [SerializeField] private GameObject asteroid;
 
     private Vector3 vectorRotation;
 
@@ -15,9 +16,12 @@ public class AsteroidsController : MonoBehaviour
 
     public int forceIntUp = 250;
     public int forceIntDown = 300;
+
+    public Score Score;
     // Start is called before the first frame update
     void Start()
     {
+        asteroid.SetActive(true);
         rb = GetComponent<Rigidbody>();
         vectorRotation.x = Random.Range(-500, 500);
         vectorRotation.y = Random.Range(-500, 500);
@@ -33,6 +37,7 @@ public class AsteroidsController : MonoBehaviour
         
         if (other.tag == "Border")
         {
+            Score.DownScore();
             Destroy(gameObject);
         }
         

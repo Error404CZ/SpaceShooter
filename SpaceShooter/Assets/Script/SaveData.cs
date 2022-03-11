@@ -12,6 +12,6 @@ public class SaveData : MonoBehaviour
     
     private void Update()
     {
-        Debug.Log($"{fpsInt} {masterVolume} {vfxvolume} {musicVolume}");
+        //Debug.Log($"{fpsInt} {masterVolume} {vfxvolume} {musicVolume}");
     }
 }

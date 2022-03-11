@@ -22,6 +22,7 @@ public class SpawnController : MonoBehaviour
     
     [HideInInspector] public bool aSpawnOn = true;
     [HideInInspector] public bool eSpawnOn = true;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -45,15 +46,18 @@ public class SpawnController : MonoBehaviour
             {
                 GameObject newInstance = Instantiate(asteroid1);
                 newInstance.transform.position = aPosition;
+                
             }else if (asteroidModel == 2)
             {
                 GameObject newInstance = Instantiate(asteroid2);
                 newInstance.transform.position = aPosition;
+                
             }
             else
             {
                 GameObject newInstance = Instantiate(asteroid3);
                 newInstance.transform.position = aPosition;
+                
             }
                 
         }
