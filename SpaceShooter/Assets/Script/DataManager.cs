@@ -5,33 +5,47 @@ using System.IO;
 
 public class DataManager : MonoBehaviour
 {
-    public SaveData data;
-    private string file = "save.txt";
+    public SaveData SaveDataS;
+    public ScoreData ScoreDataS;
+    private string fileData = "saveData.txt";
+    private string fileScore = "scoreData.txt";
 
-    public void Save()
+    public void SaveData()
     {
-        string json = JsonUtility.ToJson(data);
+        string jsonData = JsonUtility.ToJson(SaveDataS);
         //Debug.Log(json);
-        WriteToFile(file, json);
-        Debug.Log("Save");
+        WriteToFile(fileData, jsonData);
+        Debug.Log("SaveData");
     }
-
-    public void Load()
+    public void SaveScore()
     {
-        //data = new SaveData();
-        string json = ReadFromFile(file);
-        JsonUtility.FromJsonOverwrite(json, data);
-        Debug.Log("Load");
+        string jsonData = JsonUtility.ToJson(SaveDataS);
+        //Debug.Log(json);
+        WriteToFile(fileScore, jsonData);
+        Debug.Log("SaveScore");
     }
 
-    private void WriteToFile(string fileName, string json)
+    public void LoadData()
+    {
+        string jsonData = ReadFromFile(fileData);
+        JsonUtility.FromJsonOverwrite(jsonData, SaveDataS);
+        Debug.Log("LoadData");
+    }
+    public void LoadScore()
+    {
+        string jsonScore = ReadFromFile(fileScore);
+        JsonUtility.FromJsonOverwrite(jsonScore, SaveDataS);
+        Debug.Log("LoadScore");
+    }
+
+    private void WriteToFile(string fileName, string jsonData)
     {
         string path = GetFilePath(fileName);
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
         using (StreamWriter writer = new StreamWriter(fileStream))
         {
-            writer.Write(json);
+            writer.Write(jsonData);
         }
     }
 
@@ -42,8 +56,8 @@ public class DataManager : MonoBehaviour
         {
             using (StreamReader reader = new StreamReader(path))
             {
-                string json = reader.ReadToEnd();
-                return json;
+                string jsonData = reader.ReadToEnd();
+                return jsonData;
             }
         }else
         {

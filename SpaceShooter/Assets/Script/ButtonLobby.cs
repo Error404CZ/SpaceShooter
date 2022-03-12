@@ -6,12 +6,15 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using Slider = UnityEngine.UI.Slider;
+using TMPro;
 
 public class ButtonLobby : MonoBehaviour
 {
     [SerializeField] private GameObject PlayMenu;
     [SerializeField] private GameObject SettingsMenu;
     [SerializeField] private GameObject mainText;
+    [SerializeField] private GameObject scoreText;
+    [SerializeField] private GameObject loginScene;
     
     [SerializeField] private Slider fpsSlider;
     [SerializeField] private Slider masterVolumeSlider;
@@ -24,15 +27,21 @@ public class ButtonLobby : MonoBehaviour
     [SerializeField] private TextMeshProUGUI vfxVolumeTxt;
     [SerializeField] private TextMeshProUGUI musicVolumeTxt;
 
+    [SerializeField] private TextMeshProUGUI loggedAsTxt;
+
     [SerializeField] private AudioMixer audioMixer;
+    
+    [SerializeField] private TMP_InputField InputField;
     
     public DataManager DataManager;
     public SaveData SaveData;
     
+    public ScoreData ScoreData;
+    
     // Start is called before the first frame update
     void Start()
     {
-        DataManager.Load();
+        DataManager.LoadData();
         
         fpsSlider.value = SaveData.fpsInt;
         masterVolumeSlider.value = SaveData.masterVolume;
@@ -40,8 +49,10 @@ public class ButtonLobby : MonoBehaviour
         musicVolumeSlider.value = SaveData.musicVolume;
         
         SettingsMenu.SetActive(false);
-        PlayMenu.SetActive(true);
-        mainText.SetActive(true);
+        PlayMenu.SetActive(false);
+        mainText.SetActive(false);
+        scoreText.SetActive(false);
+        loginScene.SetActive(true);
     }
 
     private void Update()
@@ -72,6 +83,7 @@ public class ButtonLobby : MonoBehaviour
     {
         PlayMenu.SetActive(false);
         mainText.SetActive(false);
+        scoreText.SetActive(false);
         SettingsMenu.SetActive(true);
     }
     public void ExitClick()
@@ -80,10 +92,20 @@ public class ButtonLobby : MonoBehaviour
     }
     public void Back()
     {
-        DataManager.Save();
+        DataManager.SaveData();
         SettingsMenu.SetActive(false);
         mainText.SetActive(true);
         PlayMenu.SetActive(true);
-        
+        scoreText.SetActive(true);
+    }
+
+    public void LoginClick()
+    {
+        ScoreData.lastName = InputField.text;
+        loggedAsTxt.text = $"Logged as: {ScoreData.lastName}";
+        loginScene.SetActive(false);
+        PlayMenu.SetActive(true);
+        mainText.SetActive(true);
+        scoreText.SetActive(true);
     }
 }

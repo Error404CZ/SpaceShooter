@@ -12,7 +12,7 @@ public class ButtonGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DataManager.Load();
+        DataManager.LoadData();
         gameOverScreen.SetActive(false);
     }
 
