@@ -101,8 +101,9 @@ public class ButtonLobby : MonoBehaviour
 
     public void LoginClick()
     {
-        ScoreData.lastName = InputField.text;
-        loggedAsTxt.text = $"Logged as: {ScoreData.lastName}";
+        ScoreData.loggedName = InputField.text;
+        loggedAsTxt.text = $"Logged as: {ScoreData.loggedName}";
+        DataManager.SaveScore();
         loginScene.SetActive(false);
         PlayMenu.SetActive(true);
         mainText.SetActive(true);

@@ -9,12 +9,19 @@ public class Score : MonoBehaviour
 {
     private int score = 0;
     [SerializeField] private TextMeshProUGUI scoreTxtGame;
-    [SerializeField] private TextMeshProUGUI scoreTxtGameOver;
+
+    [SerializeField] private TextMeshProUGUI ls;
+    [SerializeField] private TextMeshProUGUI bs;
+    //[SerializeField] private TextMeshProUGUI scoreTxtGameOver;
+
+    public ScoreData ScoreData;
+    public DataManager DataManager;
     
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
+        DataManager.LoadScore();
+        ScoreData.yourScore = 0;
     }
 
     // Update is called once per frame
@@ -26,18 +33,30 @@ public class Score : MonoBehaviour
     public void UpScore()
     {
         //Debug.Log($"{score}");
-        score = score + 1;
-        scoreTxtGame.text = $"Score: {score}";
-        scoreTxtGameOver.text = $"Final Score: {score}";
+        ScoreData.yourScore = ScoreData.yourScore + 1;
+        scoreTxtGame.text = $"Score: {ScoreData.yourScore}";
     }
 
     public void DownScore()
     {
-        if (score > 0)
+        if (ScoreData.yourScore > 0)
         {
-            score = score - 1;
-            scoreTxtGame.text = $"Score: {score}";
-            scoreTxtGameOver.text = $"Final Score: {score}";
+            ScoreData.yourScore = ScoreData.yourScore - 1;
+            scoreTxtGame.text = $"Score: {ScoreData.yourScore}";
         }
+    }
+
+    public void FinalScore()
+    {
+        ScoreData.lastScore = ScoreData.yourScore;
+        ScoreData.lastName = ScoreData.loggedName;
+        if (ScoreData.lastScore > ScoreData.bestScore)
+        {
+            ScoreData.bestName = ScoreData.loggedName;
+            ScoreData.bestScore = ScoreData.lastScore;
+        }
+        ls.text = $"LS: {ScoreData.lastName} - {ScoreData.lastScore}";
+        bs.text = $"BS: {ScoreData.bestName} - {ScoreData.bestScore}";
+        DataManager.SaveScore();
     }
 }

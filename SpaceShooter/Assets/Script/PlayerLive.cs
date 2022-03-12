@@ -12,6 +12,8 @@ public class PlayerLive : MonoBehaviour
     [SerializeField] private GameObject asteroidController;
     [SerializeField] private GameObject DeathZone;
     [SerializeField] private float time = 2f;
+
+    public Score Score;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,7 @@ public class PlayerLive : MonoBehaviour
         asteroidController.SetActive(false);
         player.SetActive(false);
         explosion.SetActive(true);
+        Score.FinalScore();
         yield return new WaitForSeconds(time);
         ScoreScreen.SetActive(false);
         gameOverScreen.SetActive(true);

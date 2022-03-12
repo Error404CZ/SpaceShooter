@@ -19,7 +19,7 @@ public class DataManager : MonoBehaviour
     }
     public void SaveScore()
     {
-        string jsonData = JsonUtility.ToJson(SaveDataS);
+        string jsonData = JsonUtility.ToJson(ScoreDataS);
         //Debug.Log(json);
         WriteToFile(fileScore, jsonData);
         Debug.Log("SaveScore");
@@ -34,7 +34,7 @@ public class DataManager : MonoBehaviour
     public void LoadScore()
     {
         string jsonScore = ReadFromFile(fileScore);
-        JsonUtility.FromJsonOverwrite(jsonScore, SaveDataS);
+        JsonUtility.FromJsonOverwrite(jsonScore, ScoreDataS);
         Debug.Log("LoadScore");
     }
 
