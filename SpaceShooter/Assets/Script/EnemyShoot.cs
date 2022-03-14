@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
+    [SerializeField] private GameObject me;
     private Rigidbody rb;
     [SerializeField]
     private int speed=-100;
     
     private Vector3 force;
+
+    public CollisionManagerScript CollisionManagerScript;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +23,6 @@ public class EnemyShoot : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.tag == "Border")
-        {
-            Destroy(gameObject);
-        }else if (other.tag == "Asteroid")
-        {
-            Destroy(gameObject);
-        }
-        
+        CollisionManagerScript.EnemyBolt(me, other);
     }
 }

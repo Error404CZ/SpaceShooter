@@ -6,37 +6,16 @@ using UnityEngine;
 
 public class AsteroidsLive : MonoBehaviour
 {
+    [SerializeField] private GameObject me;
+    
+    
     [SerializeField] private float time = 2f;
     [SerializeField] private GameObject asteridMesh;
     [SerializeField] private GameObject explosion;
-
-    public Score Score;
+    
+    public CollisionManagerScript CollisionManagerScript;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Bolt")
-        {
-            Score.UpScore();
-            StartCoroutine(asteroidDestroy());
-        }else if (other.tag == "EnemyBolt")
-        {
-            Score.DownScore();
-            StartCoroutine(asteroidDestroy());
-        }else if (other.tag == "Border")
-        {
-            Score.DownScore();
-            Destroy(gameObject);
-        }else if (other.tag == "DeathZone")
-        {
-            Destroy(gameObject);
-        }
-        
-    }
-
-    IEnumerator asteroidDestroy()
-    {
-        asteridMesh.SetActive(false);
-        explosion.SetActive(true);
-        yield return new WaitForSeconds(time);
-        Destroy(gameObject);
+        CollisionManagerScript.Asteroid(me, other, asteridMesh, explosion, time);
     }
 }

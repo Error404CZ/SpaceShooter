@@ -19,6 +19,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float time = 0.5f;
 
     public Score Score;
+
+    public CollisionManagerScript CollisionManagerScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,28 +48,6 @@ public class EnemyAI : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.tag == "Border")
-        {
-            Score.DownScore();
-            Destroy(gameObject);
-        }else if (other.tag == "Bolt")
-        {
-            Score.UpScore();
-            StartCoroutine(enemyDestroy());
-        }else if (other.tag == "DeathZone")
-        {
-            Destroy(gameObject);
-        }
-        
-    }
-    
-    IEnumerator enemyDestroy()
-    {
-        enemyMesh.SetActive(false);
-        enemyGunController.SetActive(false);
-        enemyExplosion.SetActive(true);
-        yield return new WaitForSeconds(time);
-        Destroy(gameObject);
+        CollisionManagerScript.Enemy(enemy, other, enemyMesh, enemyGunController, enemyExplosion, time);
     }
 }
