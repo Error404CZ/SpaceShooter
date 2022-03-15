@@ -12393,8 +12393,8 @@ MonoBehaviour:
   Score: {fileID: 964911841}
   asteroidController: {fileID: 512612804}
   gameOverScreen: {fileID: 358506570}
-  ScoreScreen: {fileID: 581387942}
-  DeathZone: {fileID: 1864267165}
+  scoreScreen: {fileID: 581387942}
+  deathZone: {fileID: 1864267165}
 --- !u!4 &683487324
 Transform:
   m_ObjectHideFlags: 0

@@ -55,8 +55,8 @@ public class Score : MonoBehaviour
             ScoreData.bestName = ScoreData.loggedName;
             ScoreData.bestScore = ScoreData.lastScore;
         }
-        ls.text = $"LS: {ScoreData.lastName} - {ScoreData.lastScore}";
-        bs.text = $"BS: {ScoreData.bestName} - {ScoreData.bestScore}";
+        ls.text = $"LS: {ScoreData.lastName}:  {ScoreData.lastScore}";
+        bs.text = $"BS: {ScoreData.bestName}:  {ScoreData.bestScore}";
         DataManager.SaveScore();
     }
 }

@@ -15,7 +15,7 @@ public class LobbyScoreManager : MonoBehaviour
     void Start()
     {
         DataManager.LoadScore();
-        ls.text = $"LS: {ScoreData.lastName} - {ScoreData.lastScore}";
-        bs.text = $"BS: {ScoreData.bestName} - {ScoreData.bestScore}";
+        ls.text = $"LS: {ScoreData.lastName}:  {ScoreData.lastScore}";
+        bs.text = $"BS: {ScoreData.bestName}:  {ScoreData.bestScore}";
     }
 }

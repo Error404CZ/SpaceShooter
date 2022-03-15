@@ -6,7 +6,7 @@ public class ButtonGame : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
 
-    [SerializeField] private GameObject exitScreen;
+    //[SerializeField] private GameObject exitScreen;
 
     public DataManager DataManager;
     // Start is called before the first frame update
